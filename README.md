@@ -1,11 +1,115 @@
-<h1 align="center">🌻Künbağys (Task Manager)) - is a web-based application for organizing and tracking daily tasks. Students can create tasks, set priorities, update their status, and monitor their progress.</h1>
-<h3 align="center">The project is inspired by the sunflower: just as it grows by turning toward the sun, students achieve big goals through small consistent actions and completed tasks.</h3>
+# 🌻 Künbağys — Task Manager
 
-- - Daily streaks **mnazerke89@gmail.com**
+Künbağys is a web-based task management application designed to help students organize their daily work and study routine.
+Users can create tasks, set priorities, update their status, and track their progress over time.
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-</p>
+The project is inspired by the sunflower. Just as a sunflower grows by turning toward the sun, students achieve big goals through small consistent actions and completed tasks.
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://www.sqlite.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> </a> </p>
+---
+
+## ✨ Features
+
+* User registration and login
+* Create, edit and delete tasks
+* Task status tracking (To Do / In Progress / Done)
+* Task priorities
+* Personal task list for each user
+* Progress monitoring
+
+---
+
+## 🛠 Tech Stack
+
+**Backend**
+
+* Python (Django)
+
+**Database**
+
+* PostgreSQL
+
+**Frontend**
+
+* HTML
+* CSS
+* JavaScript
+
+**Tools**
+
+* Git & GitHub
+* Postman
+* Figma
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone repository
+
+git clone https://github.com/your-username/kunbagys-task-manager.git
+
+### 2. Go to project folder
+
+cd kunbagys-task-manager
+
+### 3. Create virtual environment
+
+python -m venv venv
+
+### 4. Activate environment (Windows)
+
+venv\Scripts\activate
+
+### 5. Install dependencies
+
+pip install -r requirements.txt
+
+### 6. Create .env file
+
+Create a `.env` file and add:
+
+SECRET_KEY=your_secret_key
+
+DB_NAME=task_manager
+DB_USER=postgres
+DB_PASSWORD=your_password
+DB_HOST=localhost
+DB_PORT=5432
+
+### 7. Create database (PostgreSQL)
+
+CREATE DATABASE task_manager;
+
+### 8. Run server
+
+python run.py
+
+Open in browser:
+http://127.0.0.1:5000
+
+---
+
+## 📁 Project Structure
+
+app/ — backend logic
+templates/ — HTML templates
+static/ — CSS and JavaScript files
+models.py — database models
+routes.py — application routes
+
+---
+
+## 🔌 API Endpoints
+
+GET /tasks — get all tasks
+POST /tasks — create task
+PUT /tasks/<id> — update task
+DELETE /tasks/<id> — delete task
+
+---
+
+## 👤 Authors
+
+Murat Nazerke
+Satybay Shynar
+Tolegen Aikorkem
