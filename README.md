@@ -108,8 +108,9 @@ http://127.0.0.1:5000
 
 ---
 
-## 👤 Authors
+## 👤 Authors - SE - 1-22
 
 - Murat Nazerke
 - Satybay Shynar
 - Tolegen Aikorkem
+- 
