@@ -110,6 +110,6 @@ DELETE /tasks/<id> — delete task
 
 ## 👤 Authors
 
-Murat Nazerke
-Satybay Shynar
-Tolegen Aikorkem
+- Murat Nazerke
+- Satybay Shynar
+- Tolegen Aikorkem
