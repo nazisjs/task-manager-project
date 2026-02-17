@@ -91,20 +91,20 @@ http://127.0.0.1:5000
 
 ## 📁 Project Structure
 
-app/ — backend logic
-templates/ — HTML templates
-static/ — CSS and JavaScript files
-models.py — database models
-routes.py — application routes
+- app/ — backend logic
+- templates/ — HTML templates
+- static/ — CSS and JavaScript files
+- models.py — database models
+- routes.py — application routes
 
 ---
 
 ## 🔌 API Endpoints
 
-GET /tasks — get all tasks
-POST /tasks — create task
-PUT /tasks/<id> — update task
-DELETE /tasks/<id> — delete task
+- GET /tasks — get all tasks
+- POST /tasks — create task
+- PUT /tasks/<id> — update task
+- DELETE /tasks/<id> — delete task
 
 ---
 
