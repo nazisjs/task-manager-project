@@ -19,7 +19,7 @@ The project is inspired by the sunflower. Just as a sunflower grows by turning t
 ---
 
 ## 🛠 Tech Stack
-**Backend**
+**Frontend**
 * React (Javascript)
 
 **Backend**
