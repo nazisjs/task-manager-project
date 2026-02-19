@@ -1,6 +1,6 @@
-# 🌻 Künbağys — Task Manager
+# 🌻 SunDo — Task Manager
 
-Künbağys is a web-based task management application designed to help students organize their daily work and study routine.
+SunDo is a web-based task management application designed to help students organize their daily work and study routine.
 Users can create tasks, set priorities, update their status, and track their progress over time.
 
 The project is inspired by the sunflower. Just as a sunflower grows by turning toward the sun, students achieve big goals through small consistent actions and completed tasks.
