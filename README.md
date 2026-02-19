@@ -29,13 +29,7 @@ The project is inspired by the sunflower. Just as a sunflower grows by turning t
 **Database**
 
 * PostgreSQL
-
-**Frontend**
-
-* HTML
-* CSS
-* JavaScript
-
+  
 **Tools**
 
 * Git & GitHub
