@@ -1,6 +1,10 @@
-from django.urls import path
-from .views import hello_api
+from django.urls import path,include
+from rest_framework.routers import DefaultRouter
+from . import views
 
-urlpatterns = [
-    path('api/hello/', hello_api),
-]
+router=DefaultRouter()
+router.register(r'tasks',      views.TaskViewSet,      basename='task')
+router.register(r'courses',    views.CourseViewSet,    basename='course')
+router.register(r'checklists', views.ChecklistViewSet, basename='checklist')
+
+urlpatterns = [path('', include(router.urls))]
