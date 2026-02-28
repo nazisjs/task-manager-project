@@ -1,43 +1,39 @@
 import "./login.css";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import api from "../api/client";  // ✅ импорт axios клиента
 
 export const Login: React.FC = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");  // Django использует username, не email
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   const handleGoClick = async () => {
-    const res = await fetch("http://localhost:5000/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      const response = await api.post('/api/token/', { username, password })
+      localStorage.setItem('access', response.data.access)
+      localStorage.setItem('refresh', response.data.refresh)
 
-    const data = await res.json();
-
-    if (res.ok) {
-      navigate("/landing");
-    } else {
-      alert("Wrong email or password");
+      navigate("/account")  // ✅ переходим на аккаунт
+    } catch (err) {
+      alert("Неверный логин или пароль")
     }
   };
 
   return (
     <div className="login">
       <div className="group">
-        <div className="text-wrapper">Welcome, user_name</div>
+        <div className="text-wrapper">Welcome back!</div>
 
         <div className="rectangle" />
         <div className="div" />
         <div className="rectangle-2" />
 
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className="text-wrapper-2 input-field"
         />
 
@@ -55,11 +51,7 @@ export const Login: React.FC = () => {
           Don't have an account? Sign up
         </Link>
 
-        <button
-          className="text-wrapper-6"
-          type="button"
-          onClick={handleGoClick}
-        >
+        <button className="text-wrapper-6" type="button" onClick={handleGoClick}>
           Go
         </button>
       </div>

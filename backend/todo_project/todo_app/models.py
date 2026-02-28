@@ -2,10 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# =========================
-# DASHBOARD TASKS
-# Повседневные задачи
-# =========================
 
 class Task(models.Model):
 
@@ -28,9 +24,6 @@ class Task(models.Model):
         return self.title
 
 
-# =========================
-# COURSES (Саморазвитие)
-# =========================
 
 class Course(models.Model):
 
@@ -47,7 +40,7 @@ class Course(models.Model):
         return self.title
 
 
-    # Процент прогресса курса
+
     def progress_percent(self):
 
         total = self.checklist_set.count()
@@ -62,10 +55,7 @@ class Course(models.Model):
         return int((completed / total) * 100)
 
 
-# =========================
-# COURSE CHECKLIST
-# Этапы курса
-# =========================
+
 
 class Checklist(models.Model):
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styles from './account.module.css';
 import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
+import Tasks from './tasks'  // ✅ add this at the top
 
 export default (props: any) => {
     const navigate = useNavigate();
-    
+
     // State for inputs
     const [input1, onChangeInput1] = useState('');
     const [input2, onChangeInput2] = useState('');
@@ -30,15 +31,16 @@ export default (props: any) => {
                 <div className={styles["row-view"]}>
                     <div className={styles["column2"]}>
                         <img
-                            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/jqed6732_expires_30_days.png"} 
+                            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/jqed6732_expires_30_days.png"}
                             className={styles["image"]}
                             alt="Logo"
                         />
                         <img
-                            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/whx2vamu_expires_30_days.png"} 
+                            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/whx2vamu_expires_30_days.png"}
                             className={styles["absolute-image"]}
                             alt="Logo Decoration"
                         />
+
                     </div>
                     <span className={styles["text"]} >
                         {"Account Management"}
@@ -47,13 +49,13 @@ export default (props: any) => {
                     </div>
                     <div className={styles["row-view2"]}>
                         {/* Updated links with navigation */}
-                        <span className={styles["text2"]} onClick={() => handleNavigation("/")} style={{cursor: "pointer"}}>
+                        <span className={styles["text2"]} onClick={() => handleNavigation("/")} style={{ cursor: "pointer" }}>
                             {"Home"}
                         </span>
-                        <span className={styles["text3"]} onClick={() => handleNavigation("/courses")} style={{cursor: "pointer"}}>
+                        <span className={styles["text3"]} onClick={() => handleNavigation("/courses")} style={{ cursor: "pointer" }}>
                             {"Courses"}
                         </span>
-                        <span className={styles["text3"]} onClick={() => handleNavigation("/settings")} style={{cursor: "pointer"}}>
+                        <span className={styles["text3"]} onClick={() => handleNavigation("/settings")} style={{ cursor: "pointer" }}>
                             {"Settings"}
                         </span>
                         <button className={styles["button-row-view"]}
@@ -62,14 +64,14 @@ export default (props: any) => {
                                 {"Search in site"}
                             </span>
                             <img
-                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/u3aycr4m_expires_30_days.png"} 
+                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/u3aycr4m_expires_30_days.png"}
                                 className={styles["image2"]}
                                 alt="Search Icon"
                             />
                         </button>
                     </div>
                 </div>
-                
+
                 <div className={styles["column3"]}>
                     <span className={styles["text5"]} >
                         {"Your Account"}
@@ -97,7 +99,7 @@ export default (props: any) => {
                 {/* --- Rest of the component remains the same --- */}
                 <div className={styles["row-view4"]}>
                     <img
-                        src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/wnn0x2v0_expires_30_days.png"} 
+                        src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/wnn0x2v0_expires_30_days.png"}
                         className={styles["image3"]}
                         alt="Profile"
                     />
@@ -134,9 +136,12 @@ export default (props: any) => {
                                 {"View Courses"}
                             </span>
                         </button>
+                        <button onClick={() => navigate('/tasks')}>
+                            View Tasks
+                        </button>
                     </div>
                 </div>
-                
+
                 <div className={styles["row-view6"]}>
                     <div className={styles["column5"]}>
                         <span className={styles["text5"]} >
@@ -179,7 +184,7 @@ export default (props: any) => {
                                 </span>
                             </div>
                             <img
-                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/qe4tnt5o_expires_30_days.png"} 
+                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/qe4tnt5o_expires_30_days.png"}
                                 className={styles["image4"]}
                                 alt="Course Art"
                             />
@@ -205,7 +210,7 @@ export default (props: any) => {
                     <div className={styles["column9"]}>
                         <div className={styles["row-view9"]}>
                             <img
-                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/wq4p657f_expires_30_days.png"} 
+                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/wq4p657f_expires_30_days.png"}
                                 className={styles["image5"]}
                                 alt="Session Icon"
                             />
@@ -225,7 +230,7 @@ export default (props: any) => {
                         </div>
                         <div className={styles["row-view10"]}>
                             <img
-                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/xbvapvhe_expires_30_days.png"} 
+                                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/xbvapvhe_expires_30_days.png"}
                                 className={styles["image5"]}
                                 alt="Session Icon"
                             />
@@ -245,7 +250,7 @@ export default (props: any) => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className={styles["row-view6"]}>
                     <div className={styles["view8"]}>
                         <span className={styles["text5"]} >
@@ -285,16 +290,16 @@ export default (props: any) => {
                         </button>
                     </div>
                 </div>
-                
+
                 <div className={styles["view9"]}>
                     <div className={styles["row-view11"]}>
-                        <span className={styles["text19"]} onClick={() => handleNavigation("/terms")} style={{cursor: "pointer"}}>
+                        <span className={styles["text19"]} onClick={() => handleNavigation("/terms")} style={{ cursor: "pointer" }}>
                             {"Terms of Service"}
                         </span>
-                        <span className={styles["text20"]} onClick={() => handleNavigation("/privacy")} style={{cursor: "pointer"}}>
+                        <span className={styles["text20"]} onClick={() => handleNavigation("/privacy")} style={{ cursor: "pointer" }}>
                             {"Privacy Policy"}
                         </span>
-                        <span className={styles["text12"]} onClick={() => handleNavigation("/help")} style={{cursor: "pointer"}}>
+                        <span className={styles["text12"]} onClick={() => handleNavigation("/help")} style={{ cursor: "pointer" }}>
                             {"Help Center"}
                         </span>
                     </div>
