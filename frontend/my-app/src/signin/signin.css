@@ -29,8 +29,8 @@
   width: 600px;
 }
 
-/* Input fields styled like rectangles */
-.sign-in input.input-field {
+/* Input fields styling */
+.sign-in .input-field {
   background-color: #d9d9d9;
   border: none;
   border-radius: 7px;
@@ -42,25 +42,42 @@
   width: 604px;
   box-sizing: border-box;
   color: #000;
+  left: calc(50% - 309px);
 }
 
+/* Specific positions for each input field */
 .sign-in input[type="email"] {
   top: 127px;
-  left: calc(50% - 309px);
 }
 
-.text-wrapper-4  {
-  top: 297px;
-  left: calc(50% - 309px);
-}
-
-.sign-in input[type="password"]:nth-of-type(2) {
+.sign-in .password-field {
   top: 213px;
   left: calc(50% - 309px);
 }
 
-/* Go button styled like rectangle-2 */
-.sign-in button.text-wrapper-7 {
+.sign-in .confirm-field {
+  top: 300px; /* This specifically moves Confirm Password */
+  left: calc(50% - 309px);
+}
+
+/* Link styling */
+.sign-in .text-wrapper-5 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 395px;
+  width: 549px;
+  text-decoration: none; /* remove underline if needed */
+}
+
+/* Go button styling */
+.sign-in .text-wrapper-7 {
   background-color: #000000;
   color: #ffd400;
   border: none;
@@ -77,34 +94,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Paragraph and link styling */
-.sign-in .p {
-  color: #000000;
-  font-family: "Inter-Regular", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  left: 10px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 369px;
-  width: 549px;
-}
-
-.sign-in .text-wrapper-5 {
-  color: #000000;
-  font-family: "Inter-Regular", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  left: 10px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 389px;
-  width: 549px;
-  text-decoration: none; /* ссылка без подчеркивания */
 }

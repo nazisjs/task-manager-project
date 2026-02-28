@@ -1,16 +1,20 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Login } from "./login/login";     // твоя страница логина
-import { Signin } from "./signin/signin";  // твоя страница регистрации
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Signin } from "./signin/signin";
+import { Login } from "./login/login";
+import { Landing } from "./landing page/landing";
+// 1. Import your Account component
+import Account from "./account/account"; // Remove the { }
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />         {/* Главная страница - Login */}
-        <Route path="/signup" element={<Signin />} />  {/* Страница Signin */}
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signin />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

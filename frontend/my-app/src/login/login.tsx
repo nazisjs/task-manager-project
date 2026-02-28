@@ -1,13 +1,27 @@
 import "./login.css";
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleGoClick = () => {
-    // Placeholder: handle login logic here
-    console.log("Email:", email, "Password:", password);
+  const navigate = useNavigate();
+
+  const handleGoClick = async () => {
+    const res = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      navigate("/landing");
+    } else {
+      alert("Wrong email or password");
+    }
   };
 
   return (
@@ -19,7 +33,6 @@ export const Login: React.FC = () => {
         <div className="div" />
         <div className="rectangle-2" />
 
-        {/* Email input */}
         <input
           type="email"
           placeholder="Email"
@@ -28,7 +41,6 @@ export const Login: React.FC = () => {
           className="text-wrapper-2 input-field"
         />
 
-        {/* Password input */}
         <input
           type="password"
           placeholder="Password"
@@ -39,13 +51,15 @@ export const Login: React.FC = () => {
 
         <p className="p">Make sure you entered your details correctly</p>
 
-        {/* Sign in as a link */}
-        <a href="/signup" className="text-wrapper-4">
+        <Link to="/signup" className="text-wrapper-4">
           Don't have an account? Sign up
-        </a>
+        </Link>
 
-        {/* Go as a button */}
-        <button className="text-wrapper-6" type="button" onClick={handleGoClick}>
+        <button
+          className="text-wrapper-6"
+          type="button"
+          onClick={handleGoClick}
+        >
           Go
         </button>
       </div>
