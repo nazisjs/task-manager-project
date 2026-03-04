@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from './account.module.css';
 import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
-import Tasks from './tasks'  // ✅ add this at the top
+
 
 export default (props: any) => {
     const navigate = useNavigate();

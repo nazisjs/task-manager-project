@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Signin } from "./signin/signin";
 import { Login } from "./login/login";
 import { Landing } from "./landing page/landing";
-import TasksPage from "./tasks/task";
+import TasksPage from "./task/tasks";
 // 1. Import your Account component
 import Account from "./account/account";
 

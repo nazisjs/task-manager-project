@@ -5,7 +5,9 @@ class TaskSerializer(serializers.ModelSerializer):
     owner=serializers.StringRelatedField(read_only=True)
     class Meta:
         model=Task
-        fields=['id','title','description','completed','owner','created_at']
+        fields=['id','title','description','status',
+            'priority',
+            'due_date','completed','owner','created_at']
         read_only_fields=['id','created_at']
 
 class ChecklistSerializer(serializers.ModelSerializer):
@@ -25,7 +27,8 @@ class CourseSerializer(serializers.ModelSerializer):
     progress_percent=serializers.SerializerMethodField()
     class Meta:
         model=Course
-        fields=['id','title','description','owner','checklists','progress_percent']
+        fields=['id','title','description','status','priority',
+            'due_date','owner','checklists','progress_percent']
         read_only_fields=['id']
     
     def get_progress_percent(self,obj):
