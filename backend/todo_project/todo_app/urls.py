@@ -10,6 +10,11 @@ router.register(r'checklists', views.ChecklistViewSet, basename='checklist')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api/token/', TokenObtainPairView.as_view()),      # ✅ логин → получить токен
-    path('api/token/refresh/', TokenRefreshView.as_view()), # ✅ обновить токен
+    
+    # ✅ JWT Токены
+    path('api/token/', TokenObtainPairView.as_view()),      # Логин → получить токен
+    path('api/token/refresh/', TokenRefreshView.as_view()), # Обновить токен
+    
+    # ✅ Регистрация
+    path('api/register/', views.register),  # Регистрация нового пользователя
 ]

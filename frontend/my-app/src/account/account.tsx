@@ -26,6 +26,7 @@ export default (props: any) => {
     };
 
     return (
+
         <div className={styles["contain"]}>
             <div className={styles["column"]}>
                 <div className={styles["row-view"]}>

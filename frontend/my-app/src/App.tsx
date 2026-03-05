@@ -3,18 +3,35 @@ import { Signin } from "./signin/signin";
 import { Login } from "./login/login";
 import { Landing } from "./landing page/landing";
 import TasksPage from "./task/tasks";
-// 1. Import your Account component
 import Account from "./account/account";
+import { ProtectedRoute } from "./components/Protectedroute";  // ✅ правильный импорт
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* 🔓 Публичные маршруты */}
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signin />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/tasks" element={<TasksPage />} />
+
+        {/* 🔒 Защищённые маршруты */}
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            <ProtectedRoute>
+              <TasksPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -1,20 +1,20 @@
 import styles from "./landing.module.css";
 // 1. Import useNavigate for switching pages
 import React, { FC, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 export const Landing: FC = () => {
   const navigate = useNavigate();
 
   // 2. Simulated authentication state
   // Set to true to see Account/Log out, false to see Log in
-  const [isLoggedIn, setIsLoggedIn] = useState(true); 
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   // Function to handle logging out
   const handleLogout = () => {
     // Perform actual logout logic here (e.g., clearing tokens)
     // authService.logout();
-    
+
     setIsLoggedIn(false); // Update state
     navigate("/login"); // Redirect to login page
   };
@@ -30,12 +30,12 @@ export const Landing: FC = () => {
         <div className={styles["row-view"]}>
           <div className={styles["column2"]}>
             <img
-              src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/jbhncgec_expires_30_days.png"} 
+              src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/jbhncgec_expires_30_days.png"}
               className={styles["image"]}
               alt="Logo"
             />
             <img
-              src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/0d7teo7d_expires_30_days.png"} 
+              src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/0d7teo7d_expires_30_days.png"}
               className={styles["absolute-image"]}
               alt="Decoration"
             />
@@ -49,15 +49,15 @@ export const Landing: FC = () => {
             {/* 4. Conditional Rendering based on auth state */}
             {isLoggedIn ? (
               <>
-                <span 
-                  className={styles["text2"]} 
+                <span
+                  className={styles["text2"]}
                   onClick={handleAccountClick} // Navigate to /account
                   style={{ cursor: "pointer" }}
                 >
                   {"Account"}
                 </span>
-                <span 
-                  className={styles["text2"]} 
+                <span
+                  className={styles["text2"]}
                   onClick={handleLogout} // Navigate to /login
                   style={{ cursor: "pointer" }}
                 >
@@ -65,8 +65,8 @@ export const Landing: FC = () => {
                 </span>
               </>
             ) : (
-              <span 
-                className={styles["text2"]} 
+              <span
+                className={styles["text2"]}
                 onClick={() => navigate("/login")}
                 style={{ cursor: "pointer" }}
               >
@@ -82,14 +82,14 @@ export const Landing: FC = () => {
               {"Mastering skills is a crucial part of a successful future."}
             </span>
             <button className={styles["button"]}
-              onClick={()=>alert("Pressed!")}>
+              onClick={() => alert("Pressed!")}>
               <span className={styles["text4"]} >
                 {"start"}
               </span>
             </button>
           </div>
           <img
-            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/ybsq5y3e_expires_30_days.png"} 
+            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/ybsq5y3e_expires_30_days.png"}
             className={styles["image2"]}
             alt="Hero Image"
           />
@@ -99,16 +99,16 @@ export const Landing: FC = () => {
           <div className={styles["column4"]}>
             <div className={styles["column5"]}>
               <img
-                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/ii6l9rg8_expires_30_days.png"} 
+                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/ii6l9rg8_expires_30_days.png"}
                 className={styles["image3"]}
                 alt="Feature"
               />
               <span className={styles["absolute-text"]} >
-                {"Explore trending courses designed to elevate your skills."}
+                {"Create your own courses designed to elevate your skills."}
               </span>
             </div>
             <img
-              src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/ar92xgev_expires_30_days.png"} 
+              src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/ar92xgev_expires_30_days.png"}
               className={styles["image4"]}
               alt="Decoration"
             />
@@ -126,7 +126,7 @@ export const Landing: FC = () => {
           <div className={styles["box"]}>
           </div>
           <img
-            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/z6sn1qrk_expires_30_days.png"} 
+            src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/z6sn1qrk_expires_30_days.png"}
             className={styles["image5"]}
             alt="Decoration"
           />
@@ -135,16 +135,16 @@ export const Landing: FC = () => {
         <div className={styles["row-view3"]}>
           <div className={styles["column6"]}>
             <span className={styles["text5"]} >
-              {"Trending Courses"}
+              {"Courses for subjects"}
             </span>
             <span className={styles["text2"]} >
-              {"Popular courses among our learners"}
+              {"Manage Self-Learning Courses"}
             </span>
           </div>
           <div className={styles["column7"]}>
             <div className={styles["row-view6"]}>
               <img
-                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/q0wstju1_expires_30_days.png"} 
+                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/q0wstju1_expires_30_days.png"}
                 className={styles["image6"]}
                 alt="Course 1"
               />
@@ -167,7 +167,7 @@ export const Landing: FC = () => {
             </div>
             <div className={styles["row-view6"]}>
               <img
-                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/weejmvv6_expires_30_days.png"} 
+                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/weejmvv6_expires_30_days.png"}
                 className={styles["image6"]}
                 alt="Course 2"
               />
@@ -190,7 +190,7 @@ export const Landing: FC = () => {
             </div>
             <div className={styles["row-view6"]}>
               <img
-                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/7meh4nvm_expires_30_days.png"} 
+                src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/7meh4nvm_expires_30_days.png"}
                 className={styles["image6"]}
                 alt="Course 3"
               />
@@ -213,7 +213,7 @@ export const Landing: FC = () => {
             </div>
           </div>
         </div>
-        
+
         <div className={styles["view4"]}>
           <div className={styles["view5"]}>
             <span className={styles["text12"]} >
