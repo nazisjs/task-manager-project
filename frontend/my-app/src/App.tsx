@@ -4,7 +4,7 @@ import { Login } from "./login/login";
 import { Landing } from "./landing page/landing";
 import TasksPage from "./task/tasks";
 import Account from "./account/account";
-import { ProtectedRoute } from "./components/Protectedroute";  // ✅ правильный импорт
+import { ProtectedRoute } from "./components/Protectedroute";
 
 function App() {
   return (

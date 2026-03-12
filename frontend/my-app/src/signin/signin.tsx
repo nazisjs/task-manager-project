@@ -34,7 +34,7 @@ export const Signin: React.FC = () => {
     setError("");
 
     try {
-      // ✅ Регистрация через API
+
       const registerResponse = await api.post("/api/register/", {
         username,
         email,
@@ -42,7 +42,7 @@ export const Signin: React.FC = () => {
       });
 
       if (registerResponse.status === 201) {
-        // ✅ Автоматически логинимся после регистрации
+
         const loginResponse = await api.post("/api/token/", {
           username,
           password,
@@ -51,10 +51,10 @@ export const Signin: React.FC = () => {
         localStorage.setItem("access", loginResponse.data.access);
         localStorage.setItem("refresh", loginResponse.data.refresh);
 
-        navigate("/account");  // ✅ переходим на аккаунт
+        navigate("/account");
       }
     } catch (err: any) {
-      // Обработка ошибок от сервера
+
       if (err.response?.data) {
         const errors = err.response.data;
         const errorMsg = Object.values(errors).flat().join(", ");
@@ -108,8 +108,6 @@ export const Signin: React.FC = () => {
           className="input-field confirm-field"
           disabled={loading}
         />
-
-        {/* ✅ Отображение ошибок */}
         {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
 
         <Link to="/login" className="text-wrapper-5">

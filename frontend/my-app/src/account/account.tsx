@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import styles from './account.module.css';
-import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
+import { useNavigate } from "react-router-dom";
 
 
 export default (props: any) => {
     const navigate = useNavigate();
 
-    // State for inputs
     const [input1, onChangeInput1] = useState('');
     const [input2, onChangeInput2] = useState('');
 
-    // 2. Simulated authentication state
+
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-    // 3. Log out function
+
     const handleLogout = () => {
-        // Perform logout logic here (e.g., clear tokens)
+
         setIsLoggedIn(false);
-        navigate("/login"); // Redirect to login page
+        navigate("/login");
     };
 
-    // 4. Function to navigate to home
+
     const handleNavigation = (path: string) => {
         navigate(path);
     };
@@ -49,7 +48,7 @@ export default (props: any) => {
                     <div className={styles["box"]}>
                     </div>
                     <div className={styles["row-view2"]}>
-                        {/* Updated links with navigation */}
+
                         <span className={styles["text2"]} onClick={() => handleNavigation("/")} style={{ cursor: "pointer" }}>
                             {"Home"}
                         </span>
@@ -81,7 +80,7 @@ export default (props: any) => {
                         {"Manage your account details and study sessions."}
                     </span>
                     <div className={styles["row-view3"]}>
-                        {/* 5. Attach logout function */}
+
                         <button className={styles["button"]}
                             onClick={handleLogout}>
                             <span className={styles["text6"]} >
@@ -97,7 +96,7 @@ export default (props: any) => {
                     </div>
                 </div>
 
-                {/* --- Rest of the component remains the same --- */}
+
                 <div className={styles["row-view4"]}>
                     <img
                         src={"https://storage.googleapis.com/tagjs-prod.appspot.com/v1/QyuSuwnY5C/wnn0x2v0_expires_30_days.png"}

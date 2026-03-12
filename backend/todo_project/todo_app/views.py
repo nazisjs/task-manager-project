@@ -7,32 +7,21 @@ from .models import Task, Course, Checklist
 from .serializers import TaskSerializer, CourseSerializer, ChecklistSerializer
 
 
-# ✅ ЭНДПОИНТ РЕГИСТРАЦИИ
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
-    """
-    Регистрация нового пользователя
-    POST /api/register/
-    {
-        "username": "user123",
-        "email": "user@example.com",
-        "password": "securepass123"
-    }
-    """
+
     if request.method == 'POST':
         username = request.data.get('username')
         email = request.data.get('email')
         password = request.data.get('password')
 
-        # Валидация
         if not username or not email or not password:
             return Response(
                 {'error': 'Username, email and password are required'},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Проверяем что пользователь не существует
         if User.objects.filter(username=username).exists():
             return Response(
                 {'error': 'Username already exists'},
@@ -45,7 +34,6 @@ def register(request):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Создаём пользователя
         try:
             user = User.objects.create_user(
                 username=username,
@@ -67,7 +55,7 @@ def register(request):
             )
 
 
-# ✅ ViewSets для остальных эндпоинтов
+
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated]

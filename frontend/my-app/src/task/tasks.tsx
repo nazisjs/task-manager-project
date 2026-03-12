@@ -29,9 +29,9 @@ const TASK_STATUSES = {
     },
     denied: {
         label: 'Denied',
-        color: '#dd0000',
+        color: '#d6c614',
         lightColor: '#ffe6e6',
-        darkColor: '#990000',
+        darkColor: '#8f8723',
         icon: '✕'
     }
 };
