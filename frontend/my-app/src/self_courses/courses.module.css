@@ -1,0 +1,493 @@
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.07);
+}
+
+.navLogo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 35px;
+}
+
+.navMark {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: #0a0a0a;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.navWordmark {
+    font-family: "Georgia", serif;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: -0.01em;
+    color: #0a0a0a;
+}
+
+.navSpacer {
+    flex: 1;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.navLink {
+    font-family: -apple-system, "Helvetica Neue", sans-serif;
+    font-size: 13px;
+    color: #555;
+    padding: 6px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    user-select: none;
+}
+
+.navLink:hover {
+    background: #f4f4f4;
+    color: #0a0a0a;
+}
+
+.navLinkOutline {
+    border: 0.5px solid rgba(0, 0, 0, 0.12);
+}
+
+.navLinkCta {
+    background: #0a0a0a;
+    color: #fff;
+    font-weight: 500;
+}
+
+.navLinkCta:hover {
+    background: #222;
+    color: #fff;
+}
+
+.container {
+    font-size: 56px;
+    font-weight: normal;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.header {
+    font-family: "Lora", serif;
+    font-size: 60px;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #2c1810;
+    margin: 0 0 6px 0;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #8a7560;
+    margin: 0;
+}
+
+.addCourseBtn {
+    padding: 10px 22px;
+    background: #754c17;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.addCourseBtn:hover {
+    background: #5a3912;
+    transform: translateY(-1px);
+}
+
+.newCourseForm {
+    background: #faf7f2;
+    border: 1.5px solid #e8dfd0;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.formInput {
+    font-family: "Open Sans", serif;
+    padding: 10px 14px;
+    border: 1.5px solid #e0d5c5;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.formInput:focus {
+    border-color: #754c17;
+}
+
+.formTextarea {
+    font-family: "Open Sans", serif;
+    padding: 10px 14px;
+    border: 1.5px solid #e0d5c5;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+    resize: vertical;
+    min-height: 72px;
+    transition: border-color 0.2s;
+}
+
+.formTextarea:focus {
+    border-color: #754c17;
+}
+
+.formSelect {
+    padding: 10px 14px;
+    border: 1.5px solid #e0d5c5;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.formRow {
+    display: flex;
+    gap: 12px;
+}
+
+.formRow .formInput,
+.formRow .formSelect {
+    flex: 1;
+}
+
+.formButtons {
+    display: flex;
+    gap: 10px;
+}
+
+.saveBtn {
+    flex: 1;
+    padding: 10px;
+    background: #754c17;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.saveBtn:hover {
+    background: #5a3912;
+}
+
+.cancelBtn {
+    flex: 1;
+    padding: 10px;
+    background: #f1ebe3;
+    color: #4a3728;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.cancelBtn:hover {
+    background: #e5ddd3;
+}
+
+
+.coursesList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.emptyState {
+    text-align: center;
+    color: #a89880;
+    font-size: 15px;
+    padding: 60px 20px;
+    font-family: "Open Sans", serif;
+    background: #faf7f2;
+    border-radius: 14px;
+    border: 1.5px dashed #e0d5c5;
+}
+
+.courseCard {
+    background: #ffffff;
+    border: 1.5px solid #e8dfd0;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.courseCard:hover {
+    box-shadow: 0 4px 16px rgba(117, 76, 23, 0.1);
+}
+
+.courseHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.courseLeft {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.expandIcon {
+    font-size: 11px;
+    color: #a89880;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.courseTitle {
+    margin: 0 0 4px 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: #2c1810;
+}
+
+.courseDesc {
+    margin: 0;
+    font-size: 15px;
+    color: #8a7560;
+    font-family: "Open Sans", serif;
+}
+
+.courseRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.priorityBadge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.statusSelect {
+    padding: 5px 10px;
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.dueDate {
+    font-size: 12px;
+    color: #a89880;
+    white-space: nowrap;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    font-weight: 700;
+    transition: transform 0.15s;
+    line-height: 1;
+}
+
+.deleteBtn:hover {
+    transform: scale(1.2);
+}
+
+.progressContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px 14px;
+}
+
+.progressBar {
+    flex: 1;
+    height: 6px;
+    background: #f0ebe3;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #4f793f, #87e344);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.progressText {
+    font-size: 12px;
+    font-weight: 700;
+    color: #754c17;
+    min-width: 36px;
+    text-align: right;
+}
+
+.checklistContainer {
+    border-top: 1.5px solid #f0ebe3;
+    padding: 16px 20px;
+    background: #faf7f2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.emptyChecklist {
+    font-size: 13px;
+    color: #a89880;
+    font-family: "Open Sans", serif;
+    margin: 0;
+}
+
+.checklistItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ede7dc;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: #754c17;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checklistTitle {
+    flex: 1;
+    font-size: 14px;
+    color: #2c1810;
+    transition: all 0.2s;
+}
+
+.checklistDone {
+    text-decoration: line-through;
+    color: #a89880;
+}
+
+.deleteChecklistBtn {
+    background: none;
+    border: none;
+    color: #c9b99a;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 0;
+    font-weight: 700;
+    transition: color 0.15s;
+    line-height: 1;
+}
+
+.deleteChecklistBtn:hover {
+    color: #695d19;
+}
+
+.addChecklistRow {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.checklistInput {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1.5px solid #e0d5c5;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: "Open Sans", serif;
+    background: white;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.checklistInput:focus {
+    border-color: #754c17;
+}
+
+.addChecklistBtn {
+    padding: 8px 14px;
+    background: #754c17;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.addChecklistBtn:hover {
+    background: #5a3912;
+}
+
+.footer {
+    padding: 28px 48px;
+    font-family: "Lora", serif;
+    font-size: 13px;
+    color: #7f7e7e;
+    text-align: center;
+    border-top: 0.5px solid rgba(87, 85, 85, 0.311);
+}

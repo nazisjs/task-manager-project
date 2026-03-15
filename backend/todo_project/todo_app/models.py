@@ -7,7 +7,7 @@ class Task(models.Model):
     STATUS_CHOICES = [
         ('in_progress', 'In Progress'),
         ('completed', 'Completed'),
-        ('denied', 'Denied'),
+        ('to_do', 'To Do'),
     ]
     
     PRIORITY_CHOICES = [
@@ -34,6 +34,7 @@ class Task(models.Model):
     due_date = models.DateField(blank=True, null=True)
 
     completed = models.BooleanField(default=False)
+    completed_at=models.DateTimeField(blank=True,null=True)
 
     owner = models.ForeignKey(
         User,
@@ -53,7 +54,7 @@ class Course(models.Model):
     STATUS_CHOICES = [
         ('in_progress', 'In Progress'),
         ('completed', 'Completed'),
-        ('denied', 'Denied'),
+        ('to_do', 'To Do'),
     ]
     
     PRIORITY_CHOICES = [

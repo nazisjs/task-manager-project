@@ -15,7 +15,6 @@ export const Landing: FC = () => {
   const dailyRoutines = [
     { icon: "🌅", label: "Morning walk", time: "07:00", done: true },
     { icon: "📖", label: "Read 20 pages", time: "08:30", done: true },
-    { icon: "💧", label: "Drink 2L water", time: "All day", done: false },
     { icon: "🧘", label: "Meditate", time: "21:00", done: false },
   ];
 

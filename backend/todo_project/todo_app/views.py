@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from .models import Task, Course, Checklist
 from .serializers import TaskSerializer, CourseSerializer, ChecklistSerializer
+from django.utils import timezone
 
 
 @api_view(['POST'])
@@ -54,6 +55,38 @@ def register(request):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def statistics(request):
+    user=request.user
+    total_courses=Course.objects.filter(owner=user).count()
+    completed_courses=Course.objects.filter(owner=user,status='completed').count()
+    total_checklists=Checklist.objects.filter(course__owner=user).count()
+    completed_checklists=Checklist.objects.filter(course__owner=user,completed=True).count()
+    total_daily_tasks=Task.objects.filter(owner=user).count()
+    total_completed_daily_tasks=Task.objects.filter(owner=user,status='completed').count()
+
+    from datetime import date,timedelta
+    completed_dates=set(
+        Task.objects.filter(owner=user,status='completed',completed_at__isnull=False)
+        .values_list('completed_at__date',flat=True)
+
+    )
+    streak=0
+    today=date.today()
+    current=today
+    while current in completed_dates:
+        streak+=1
+        current-=timedelta(days=1)
+    return Response({
+        'total_courses':total_courses,
+        'completed_courses':completed_courses,
+        'total_checklists':total_checklists,
+        'completed_checklists':completed_checklists,
+        'streak_days':streak,
+        'total_daily_tasks':total_daily_tasks,
+        'total_completed_daily_tasks':total_completed_daily_tasks,
+    })
 
 
 class TaskViewSet(viewsets.ModelViewSet):
@@ -66,6 +99,12 @@ class TaskViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+    def partial_update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if request.data.get('status') == 'completed' and instance.status != 'completed':
+            instance.completed_at = timezone.now()
+            instance.save()
+        return super().partial_update(request, *args, **kwargs)
 
 class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
@@ -83,7 +122,7 @@ class ChecklistViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Checklist.objects.filter(owner=self.request.user)
+        return Checklist.objects.filter(course__owner=self.request.user)
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        serializer.save()

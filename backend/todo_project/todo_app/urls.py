@@ -14,5 +14,6 @@ urlpatterns = [
     # ✅ JWT Токены
     path('api/token/', TokenObtainPairView.as_view()),      # Логин → получить токен
     path('api/token/refresh/', TokenRefreshView.as_view()), # Обновить токен
-    path('api/register/', views.register),  # Регистрация нового пользователя
+    path('api/register/', views.register),
+    path('api/statistics/',views.statistics )  # Регистрация нового пользователя
 ]

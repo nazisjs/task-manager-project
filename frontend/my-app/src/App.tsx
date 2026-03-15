@@ -3,6 +3,7 @@ import { Signin } from "./signin/signin";
 import { Login } from "./login/login";
 import { Landing } from "./landing page/landing";
 import TasksPage from "./task/tasks";
+import Courses from "./self_courses/courses";
 import Account from "./account/account";
 import { ProtectedRoute } from "./components/Protectedroute";
 
@@ -29,6 +30,14 @@ function App() {
           element={
             <ProtectedRoute>
               <TasksPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/courses"
+          element={
+            <ProtectedRoute>
+              <Courses />
             </ProtectedRoute>
           }
         />
