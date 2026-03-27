@@ -63,14 +63,14 @@ export default function KanbanBoard() {
     }, []);
 
     const fetchTasks = () => {
-        api.get('/tasks/')
+        api.get('/api/tasks/')
             .then(res => setTasks(res.data))
             .catch(err => console.error('Tasks error:', err));
     };
 
     const addTask = () => {
         if (!newTask.trim()) return;
-        api.post('/tasks/', {
+        api.post('/api/tasks/', {
             title: newTask,
             status: 'to_do',
             priority: 'medium',
@@ -84,13 +84,13 @@ export default function KanbanBoard() {
     };
 
     const deleteTask = (id: number) => {
-        api.delete(`/tasks/${id}/`)
+        api.delete(`/api/tasks/${id}/`)
             .then(() => setTasks(tasks.filter(t => t.id !== id)))
             .catch(err => console.error('Delete error:', err));
     };
 
     const updateTask = (taskId: number, updates: Partial<Task>) => {
-        api.patch(`/tasks/${taskId}/`, updates)
+        api.patch(`/api/tasks/${taskId}/`, updates)
             .then(res => {
                 setTasks(tasks.map(t => t.id === taskId ? res.data : t));
                 setSelectedTask(res.data);
@@ -137,7 +137,7 @@ export default function KanbanBoard() {
     return (
         <>
             <nav className={styles.nav}>
-                <div className={styles.navLogo}>
+                <div className={styles.navLogo} onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
                     <img
                         src={logo}
                         className={styles.logo}
@@ -160,6 +160,7 @@ export default function KanbanBoard() {
                             <span className={styles.navLink} onClick={() => navigate("/courses")}>
                                 My Courses
                             </span>
+                            <span className={styles.navLink} onClick={() => navigate("/settings")}>Settings</span>
                             <span
                                 className={`${styles.navLink} ${styles.navLinkOutline}`}
                                 onClick={handleLogout}
@@ -214,7 +215,7 @@ export default function KanbanBoard() {
                     </div>
                 </div>
 
-                {/* Board */}
+
                 <div className={styles.boardContainer}>
                     {Object.entries(TASK_STATUSES).map(([statusKey, statusConfig]) => (
                         <div
@@ -379,4 +380,3 @@ export default function KanbanBoard() {
         </>
     );
 }
-

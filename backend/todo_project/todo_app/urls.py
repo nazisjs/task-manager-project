@@ -4,16 +4,16 @@ from rest_framework.routers import DefaultRouter
 from . import views
 
 router = DefaultRouter()
-router.register(r'tasks',      views.TaskViewSet,      basename='task')
-router.register(r'courses',    views.CourseViewSet,    basename='course')
-router.register(r'checklists', views.ChecklistViewSet, basename='checklist')
+router.register(r'tasks',views.TaskViewSet,basename='task')
+router.register(r'courses',views.CourseViewSet,basename='course')
+router.register(r'checklists',views.ChecklistViewSet,basename='checklist')
 
 urlpatterns = [
-    path('', include(router.urls)),
-    
-    # ✅ JWT Токены
-    path('api/token/', TokenObtainPairView.as_view()),      # Логин → получить токен
-    path('api/token/refresh/', TokenRefreshView.as_view()), # Обновить токен
+    path('api/', include(router.urls)),
+    path('api/token/', TokenObtainPairView.as_view()),     
+    path('api/token/refresh/', TokenRefreshView.as_view()), 
     path('api/register/', views.register),
-    path('api/statistics/',views.statistics )  # Регистрация нового пользователя
+    path('api/statistics/',views.statistics ),
+    path('api/user/', views.current_user),
+    path('api/change-password/',views.change_password),
 ]

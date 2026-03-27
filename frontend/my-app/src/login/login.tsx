@@ -1,20 +1,28 @@
 import "./login.css";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import api from "../api/client";  // ✅ импорт axios клиента
+import api from "../api/client";
 
 export const Login: React.FC = () => {
-  const [username, setUsername] = useState("");  // Django использует username, не email
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleGoClick = async () => {
     try {
       const response = await api.post('/api/token/', { username, password })
+      const previousUser = localStorage.getItem('loggedInUser');
+      if (previousUser && previousUser !== username) {
+        localStorage.removeItem('profileName');
+        localStorage.removeItem('profileEmail');
+        localStorage.removeItem('profileBio');
+        localStorage.removeItem('avatarUrl');
+      }
+      localStorage.setItem('loggedInUser', username);
       localStorage.setItem('access', response.data.access)
       localStorage.setItem('refresh', response.data.refresh)
 
-      navigate("/account")  // ✅ переходим на аккаунт
+      navigate("/account")
     } catch (err) {
       alert("Неверный логин или пароль")
     }

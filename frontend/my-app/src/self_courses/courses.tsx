@@ -59,14 +59,14 @@ export default function Courses() {
     }, []);
 
     const fetchCourses = () => {
-        api.get('/courses/')
+        api.get('/api/courses/')
             .then(res => setCourses(res.data))
             .catch(err => console.error('Courses error:', err));
     };
 
     const addCourse = () => {
         if (!newCourseTitle.trim()) return;
-        api.post('/courses/', {
+        api.post('/api/courses/', {
             title: newCourseTitle,
             description: newCourseDesc,
             status: 'to_do',
@@ -85,13 +85,13 @@ export default function Courses() {
     };
 
     const deleteCourse = (id: number) => {
-        api.delete(`/courses/${id}/`)
+        api.delete(`/api/courses/${id}/`)
             .then(() => setCourses(courses.filter(c => c.id !== id)))
             .catch(err => console.error('Delete course error:', err));
     };
 
     const updateCourseStatus = (id: number, status: Course['status']) => {
-        api.patch(`/courses/${id}/`, { status })
+        api.patch(`/api/courses/${id}/`, { status })
             .then(res => setCourses(courses.map(c => c.id === id ? { ...c, ...res.data } : c)))
             .catch(err => console.error('Update status error:', err));
     };
@@ -99,7 +99,7 @@ export default function Courses() {
     const addChecklist = (courseId: number) => {
         const title = newChecklistInputs[courseId]?.trim();
         if (!title) return;
-        api.post('/checklists/', { title, completed: false, course: courseId })
+        api.post('/api/checklists/', { title, completed: false, course: courseId })
             .then(res => {
                 setCourses(courses.map(c => {
                     if (c.id !== courseId) return c;
@@ -113,7 +113,7 @@ export default function Courses() {
     };
 
     const toggleChecklist = (courseId: number, item: Checklist) => {
-        api.patch(`/checklists/${item.id}/`, { completed: !item.completed })
+        api.patch(`/api/checklists/${item.id}/`, { completed: !item.completed })
             .then(res => {
                 setCourses(courses.map(c => {
                     if (c.id !== courseId) return c;
@@ -131,7 +131,7 @@ export default function Courses() {
     };
 
     const deleteChecklist = (courseId: number, checklistId: number) => {
-        api.delete(`/checklists/${checklistId}/`)
+        api.delete(`/api/checklists/${checklistId}/`)
             .then(() => {
                 setCourses(courses.map(c => {
                     if (c.id !== courseId) return c;
@@ -156,7 +156,7 @@ export default function Courses() {
     return (
         <>
             <nav className={styles.nav}>
-                <div className={styles.navLogo}>
+                <div className={styles.navLogo} onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
                     <img
                         src={logo}
                         className={styles.logo}
@@ -179,6 +179,7 @@ export default function Courses() {
                             <span className={styles.navLink} onClick={() => navigate("/courses")}>
                                 My Courses
                             </span>
+                            <span className={styles.navLink} onClick={() => navigate("/settings")}>Settings</span>
                             <span
                                 className={`${styles.navLink} ${styles.navLinkOutline}`}
                                 onClick={handleLogout}

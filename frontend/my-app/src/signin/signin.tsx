@@ -1,7 +1,7 @@
 import "./signin.css";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import api from "../api/client";  // ✅ используем axios клиент
+import api from "../api/client";
 
 export const Signin: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -14,19 +14,18 @@ export const Signin: React.FC = () => {
   const navigate = useNavigate();
 
   const handleGoClick = async () => {
-    // Валидация на фронте
     if (!username || !email || !password || !confirm) {
-      setError("Все поля обязательны");
+      setError("All fields needs to be filled");
       return;
     }
 
     if (password !== confirm) {
-      setError("Пароли не совпадают");
+      setError("Passwords doesn't match");
       return;
     }
 
     if (password.length < 6) {
-      setError("Пароль должен быть минимум 6 символов");
+      setError("Minimum 6 symbols required");
       return;
     }
 
@@ -48,6 +47,11 @@ export const Signin: React.FC = () => {
           password,
         });
 
+        localStorage.removeItem("profileName");
+        localStorage.removeItem("profileEmail");
+        localStorage.removeItem("profileBio");
+        localStorage.removeItem("avatarUrl");
+        localStorage.setItem("loggedInUser", username);
         localStorage.setItem("access", loginResponse.data.access);
         localStorage.setItem("refresh", loginResponse.data.refresh);
 
@@ -58,9 +62,9 @@ export const Signin: React.FC = () => {
       if (err.response?.data) {
         const errors = err.response.data;
         const errorMsg = Object.values(errors).flat().join(", ");
-        setError(errorMsg || "Ошибка регистрации");
+        setError(errorMsg || "Registration error");
       } else {
-        setError("Ошибка регистрации. Попробуй ещё раз.");
+        setError("Registration error.Try again!");
       }
       console.error("Registration error:", err);
     } finally {
@@ -71,7 +75,7 @@ export const Signin: React.FC = () => {
   return (
     <div className="sign-in">
       <div className="group">
-        <div className="text-wrapper">Hi, what's your name?</div>
+        <div className="text-wrapper">Welcome!</div>
 
         <input
           type="text"
@@ -119,7 +123,7 @@ export const Signin: React.FC = () => {
           className="text-wrapper-7"
           disabled={loading}
         >
-          {loading ? "Registering..." : "Go"}
+          {loading ? "Registering" : "Go"}
         </button>
       </div>
     </div>

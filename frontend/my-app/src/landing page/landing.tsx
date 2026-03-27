@@ -89,7 +89,7 @@ export const Landing: FC = () => {
             <span className={styles.heroUnderline}>done daily.</span>
           </h1>
           <p className={styles.heroSub}>
-            SunDo splits your life into two simple tracks —{" "}
+            SunDo splits your life into two simple tracks -{" "}
             <strong>Daily</strong> habits and <strong>Academic</strong> goals.
             You build the plan. SunDo keeps you honest.
           </p>
@@ -112,8 +112,8 @@ export const Landing: FC = () => {
 
         <div className={styles.appPreview}>
           <div className={styles.previewHeader}>
-            <span className={styles.previewDate}>Today · Thursday</span>
-            <span className={styles.previewStreak}>🔥 6 day streak</span>
+            <span className={styles.previewDate}></span>
+            <span className={styles.previewStreak}>🌻 Day streak</span>
           </div>
 
           <div className={styles.previewSection}>
@@ -259,8 +259,6 @@ export const Landing: FC = () => {
           </div>
         </div>
       </section>
-
-      {/* HOW IT WORKS */}
       <section className={styles.howSection}>
         <p className={styles.eyebrow}>How it works</p>
         <h2 className={styles.sectionTitle}>Simple by design</h2>
@@ -287,8 +285,6 @@ export const Landing: FC = () => {
           Create your plan →
         </button>
       </section>
-
-      {/* FOOTER */}
       <footer className={styles.footer}>
         <span>© 2026 SunDo. All rights reserved.</span>
       </footer>
