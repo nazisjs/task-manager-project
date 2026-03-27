@@ -1,4 +1,4 @@
-## 👤 Authors - SE - 1-22
+## 👤 Devs - По - 1-22
 
 - Murat Nazerke
 - Satybay Shynar
