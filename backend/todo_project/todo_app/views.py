@@ -122,7 +122,6 @@ def change_password(request):
 
     user.set_password(new_password)
     user.save()
-    # Return new tokens so the frontend stays logged in
     from rest_framework_simplejwt.tokens import RefreshToken
     refresh = RefreshToken.for_user(user)
     return Response({
@@ -144,15 +143,12 @@ def statistics(request):
     total_completed_daily_tasks=Task.objects.filter(owner=user,status='completed').count()
 
     from datetime import date, timedelta
-    # Streak = consecutive days where at least one task was COMPLETED
-    # Does NOT count today unless a task was actually completed today
     completed_dates = set(
         Task.objects.filter(owner=user, status='completed', completed_at__isnull=False)
         .values_list('completed_at__date', flat=True)
     )
     streak = 0
     today = date.today()
-    # Start from today if completed something today, otherwise start from yesterday
     current = today if today in completed_dates else today - timedelta(days=1)
     while current in completed_dates:
         streak += 1

@@ -150,7 +150,7 @@
     padding: 10px 14px;
     border: 1.5px solid #e0d5c5;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 18px;
     background: white;
     outline: none;
     transition: border-color 0.2s;
@@ -165,7 +165,7 @@
     padding: 10px 14px;
     border: 1.5px solid #e0d5c5;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 18px;
     background: white;
     outline: none;
     resize: vertical;
@@ -181,7 +181,7 @@
     padding: 10px 14px;
     border: 1.5px solid #e0d5c5;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 18px;
     background: white;
     outline: none;
     cursor: pointer;
@@ -245,8 +245,8 @@
 
 .emptyState {
     text-align: center;
-    color: #a89880;
-    font-size: 15px;
+    color: #7c7160;
+    font-size: 18px;
     padding: 60px 20px;
     font-family: "Open Sans", serif;
     background: #faf7f2;
@@ -455,7 +455,7 @@
     padding: 8px 12px;
     border: 1.5px solid #e0d5c5;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 15px;
     font-family: "Open Sans", serif;
     background: white;
     outline: none;
