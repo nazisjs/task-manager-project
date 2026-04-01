@@ -1,3 +1,9 @@
+## 👤 Devs - По - 1-22
+
+- Murat Nazerke
+- Satybay Shynar
+- Tolegen Aikorkem
+  
 # 🌻 SunDo — Task Manager
 
 SunDo is a web-based task management application designed to help students organize their daily work and study routine.
@@ -24,7 +30,7 @@ The project is inspired by the sunflower. Just as a sunflower grows by turning t
 
 **Backend**
 
-* Python (Django)
+* Python (Django rest framework)
 
 **Database**
 
@@ -32,8 +38,7 @@ The project is inspired by the sunflower. Just as a sunflower grows by turning t
   
 **Tools**
 
-* Git & GitHub
-* Postman
+* GitHub
 * Figma
 
 ---
@@ -42,11 +47,17 @@ The project is inspired by the sunflower. Just as a sunflower grows by turning t
 
 ### 1. Clone repository
 
-git clone https://github.com/your-username/kunbagys-task-manager.git
+git clone https://github.com/your-username/task-manager-project.git
 
 ### 2. Go to project folder
 
-cd kunbagys-task-manager
+cd backend/todo_project
+python manage.py runserver
+install required packets
+
+cd frontend/my-app
+npm start
+also install required packets
 
 ### 3. Create virtual environment
 
@@ -78,20 +89,17 @@ CREATE DATABASE task_manager;
 
 ### 8. Run server
 
-python run.py
+python 
 
 Open in browser:
-http://127.0.0.1:5000
+http://127.0.0.1:3000
 
 ---
 
 ## 📁 Project Structure
 
-- app/ — backend logic
-- templates/ — HTML templates
-- static/ — CSS and JavaScript files
-- models.py — database models
-- routes.py — application routes
+- backend/todo_project
+- frontend/my-app
 
 ---
 
@@ -103,9 +111,3 @@ http://127.0.0.1:5000
 - DELETE /tasks/<id> — delete task
 
 ---
-
-## 👤 Authors - SE - 1-22
-
-- Murat Nazerke
-- Satybay Shynar
-- Tolegen Aikorkem
